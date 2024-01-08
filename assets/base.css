@@ -2425,14 +2425,32 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+ /* border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08); */ 
+  border-bottom: 1px solid #00b4e5;
 }
 
 .header {
-  display: grid;
-  grid-template-areas: 'left-icons heading icons';
-  grid-template-columns: 1fr 2fr 1fr;
+  display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+#HeaderMenu-learn,
+#HeaderMenu-find {
+  position: relative;
+  left: 175px; /* Adjust the spacing between menus if needed */
+}
+#HeaderMenu-recipes,
+#HeaderMenu-shop {
+  position: relative;
+  left: 50px; /* Adjust the spacing between menus if needed */
+}
+
+.header__heading-logo {
+  position: relative;
+  left: calc(100% - 200px);
+  height: auto;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 749px) {
@@ -2528,14 +2546,31 @@ product-info .loading__spinner:not(.hidden) ~ *,
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.header__heading-logo {
+/* .header__heading-logo {
+  left: 500px;
   height: auto;
   max-width: 100%;
+} 
+
+#HeaderMenu-learn {
+  left: 525px;
 }
+
+#HeaderMenu-find {
+  left: 500px;
+}
+
+#HeaderMenu-recipes {
+  left: 300px;
+}
+
+#HeaderMenu-shop {
+  left: 275px;
+} */
 
 .header__heading-logo-wrapper {
   width: 100%;
-  display: inline-block;
+  display: inline-block; 
   transition: width 0.3s cubic-bezier(0.52, 0, 0.61, 0.99);
 }
 
@@ -2580,6 +2615,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
   }
 }
 
+
+
 /* Header icons */
 .header__icons {
   display: flex;
@@ -2602,10 +2639,15 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__icon {
-  color: rgb(var(--color-foreground));
+  position: absolute;
+  right: 0;
+  color: #00B4E5;
 }
 
 .header__icon span {
+  position: absolute;
+  left: 0;
+  top: -20px;
   height: 100%;
 }
 
@@ -2633,7 +2675,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__icon--cart {
-  position: relative;
+  display: flex;
   margin-right: -1.2rem;
 }
 
@@ -2810,7 +2852,7 @@ details[open] > .header__icon--menu .icon-hamburger {
   transform: translateY(-1.5rem);
 }
 
-details[open] > .header__submenu {
+ details[open] > .header__submenu {
   animation: animateMenuOpen var(--duration-default) ease;
   animation-fill-mode: forwards;
   z-index: 1;
@@ -2858,25 +2900,39 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
+  position: relative;
+  overflow: hidden;
   padding: 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.header__menu-item:hover {
-  color: rgb(var(--color-foreground));
+.header__menu-item::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  width: 0;
+  height: 1px;
+  background-color: #00B4E5;
+  transition: width 0.5s ease;
 }
+
+.header__menu-item:hover {
+ /* color: rgb(var(--color-foreground)); this remove the black*/
+ color: #00B4E5;
+}
+
+.header__menu-item:hover::after {
+  width: calc(100% - 20px);
+ }
 
 .header__menu-item span {
-  transition: text-decoration var(--duration-short) ease;
+ transition: text-decoration var(--duration-short) ease; 
+ 
 }
 
-.header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
-details[open] > .header__menu-item {
+/* details[open] > .header__menu-item {
   text-decoration: underline;
 }
 
@@ -2886,18 +2942,17 @@ details[open]:hover > .header__menu-item {
 
 details[open] > .header__menu-item .icon-caret {
   transform: rotate(180deg);
-}
+} 
 
 .header__active-menu-item {
-  transition: text-decoration-thickness var(--duration-short) ease;
+ transition: text-decoration-thickness var(--duration-short) ease;
   color: rgb(var(--color-foreground));
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
-
+} 
 .header__menu-item:hover .header__active-menu-item {
   text-decoration-thickness: 0.2rem;
-}
+} */
 
 .header__submenu {
   transition: opacity var(--duration-default) ease, transform var(--duration-default) ease;
@@ -2924,6 +2979,7 @@ details[open] > .header__menu-item .icon-caret {
   margin: 1rem 0;
 }
 
+/*
 .header__submenu .header__menu-item:after {
   right: 2rem;
 }
@@ -2947,6 +3003,7 @@ details[open] > .header__menu-item .icon-caret {
   position: static;
 }
 
+*/ 
 header-menu > details,
 details-disclosure > details {
   position: relative;
