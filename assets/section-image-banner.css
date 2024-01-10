@@ -1,3 +1,23 @@
+
+
+.banner__text ul li::before {
+  content: "\2713"; /* Unicode checkmark character */
+  display: inline-block;
+  width: 1em; 
+  margin-left: -1.2em; /* Negative margin to align checkmark */
+  color: #713f2a; 
+  font-weight: bold; 
+  padding-right: 0.5em; /* Add some spacing between checkmark and text */
+}
+
+.banner__text ul {
+  list-style-type: none;
+  border: #713f2a;
+  margin-left: 20px; 
+  color: #713f2a; 
+  font-weight: bold; 
+}
+
 .banner {
   display: flex;
   position: relative;

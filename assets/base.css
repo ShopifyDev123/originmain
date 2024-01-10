@@ -1354,7 +1354,11 @@ button.shopify-payment-button__button--unbranded {
 .customer button.disabled,
 .quantity__button.disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 1;
+  background-color: #ffffff;
+  color: #713f2a;
+  font-weight: bold;
+  border: 1px solid #713f2a;
 }
 
 .button--full-width {
@@ -2546,28 +2550,6 @@ product-info .loading__spinner:not(.hidden) ~ *,
   color: rgba(var(--color-foreground), 0.75);
 }
 
-/* .header__heading-logo {
-  left: 500px;
-  height: auto;
-  max-width: 100%;
-} 
-
-#HeaderMenu-learn {
-  left: 525px;
-}
-
-#HeaderMenu-find {
-  left: 500px;
-}
-
-#HeaderMenu-recipes {
-  left: 300px;
-}
-
-#HeaderMenu-shop {
-  left: 275px;
-} */
-
 .header__heading-logo-wrapper {
   width: 100%;
   display: inline-block; 
@@ -2640,13 +2622,13 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header__icon {
   position: absolute;
-  right: 0;
+  right: 5px;
   color: #00B4E5;
 }
 
 .header__icon span {
   position: absolute;
-  left: 0;
+  right: 25px;
   top: -20px;
   height: 100%;
 }

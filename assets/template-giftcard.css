@@ -118,6 +118,7 @@ h2,
   color: rgb(var(--color-secondary-button-label));
   box-shadow: 0 0 0 0.1rem rgb(var(--color-secondary-button-label));
   background-color: transparent;
+  font-size: 10rem;
 }
 
 .button--secondary::selection {
